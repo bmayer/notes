@@ -1,4 +1,5 @@
-apt
+### apt
+```shell
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
 
@@ -7,44 +8,47 @@ apt-get update && apt-get install -y git vim
 apt-get install -t wheezy-backports nginx
 
 /etc/apt/sources.list.d/
+```
 
-arp
-     -na
+### arp
+```shell
+-na
+```
 
-atlas-client
-package-find --package-name=<package>
-repo-join --repo-id=<id>
+### awk
+```shell
+[inserting a new column called 'ndx' starting at count 0 and incrementing]
+awk 'BEGIN{ndx=0}{print ndx, $1, $8; ndx+=1}’
 
+awk -Wversion 2>/dev/null || awk --version
+```
 
-awk
-      [inserting a new column called 'ndx' starting at count 0 and incrementing]
-    awk 'BEGIN{ndx=0}{print ndx, $1, $8; ndx+=1}’
+### chkconfig (service) (see also systemctl)
+```shell
+-—list
+--level 2345 appd4db off
+--list appd4db
+  appd4db            0:off    1:off    2:off    3:off    4:off    5:off    6:off
+```
 
-    awk -Wversion 2>/dev/null || awk --version
+### chmod
+```shell
+g+s [inherit the group ID on any new files or subdirectories created]
+a+r [grant read perms to everyone]
 
++ == <add perms>
+- == <rm perms>
+= == <the only perms the file has>
 
-chkconfig (service) (see also systemctl)
-  -—list
-  --level 2345 appd4db off
-  --list appd4db
-    appd4db            0:off    1:off    2:off    3:off    4:off    5:off    6:off
+u == <user who owns it>
+g == <group owner>
+o == <other users not in group>
+a == <all users>
 
-chmod
-     g+s [inherit the group ID on any new files or subdirectories created]
-       a+r [grant read perms to everyone]
-
-   + == <add perms>
-   - == <rm perms>
-   = == <the only perms the file has>
-
-   u == <user who owns it>
-   g == <group owner>
-   o == <other users not in group>
-   a == <all users>
-
-   rwx == <duh>
-   X == <execute only if directory>
-   s == <set user or group ID>
+rwx == <duh>
+X == <execute only if directory>
+s == <set user or group ID>
+```   
    
 curl
     -d “@filename.foo”
