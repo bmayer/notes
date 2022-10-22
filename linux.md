@@ -50,53 +50,64 @@ X == <execute only if directory>
 s == <set user or group ID>
 ```   
    
-curl
-    -d “@filename.foo”
-    -u “user"
-    -w “%{http_code} %{time_total}”
-    -x <proxy>
-    -X GET|POST
-    -O (download file)
-    -H "Authorization: bearer ${access_token}”
+### curl
+```shell
+-d “@filename.foo”
+-u “user"
+-w “%{http_code} %{time_total}”
+-x <proxy>
+-X GET|POST
+-O (download file)
+-H "Authorization: bearer ${access_token}”
+```
 
-cut
-        -f<field number> (no space)
-    -d<field separator> (no space)
+### cut
+```shell
+-f<field number> (no space)
+-d<field separator> (no space)
 
-    cut -f2 -d” "
+cut -f2 -d” "
+```    
 
-dd
-    dd if=/dev/zero of=/db/oracle/data/output conv=fdatasync bs=384k count=5k; rm -f /db/oracle/data/output
+### dd
+```shell
+dd if=/dev/zero of=/db/oracle/data/output conv=fdatasync bs=384k count=5k; rm -f /db/oracle/data/output
+```
 
-docker
-       run [runs the container]
-     -t [assigns a pseudo-tty inside the container]
-     -i [makes an interactive connection to SDTIN of the container]
-     -d [daemonizes the container]
-     -c [run command]
+### docker
+```shell
+run [runs the container]
+-t [assigns a pseudo-tty inside the container]
+-i [makes an interactive connection to SDTIN of the container]
+-d [daemonizes the container]
+-c [run command]
 
-     run [image:version] -t -i /bin/bash
+run [image:version] -t -i /bin/bash
 
-     run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 
-     logs [container name or id]
+logs [container name or id]
 
-     logs 1b24f82b469b
+logs 1b24f82b469b
 
-     images [lists all images on local machine]
+images [lists all images on local machine]
 
-     pull <image_name>
+pull <image_name>
+```
 
-dpkg (debian & variants)
-  --get-selections [show installed packages]
+### dpkg (debian & variants)
+```shell
+--get-selections [show installed packages]
 
 filesystems (mount -t <type>)
 /etc/filesystems
 
 note: cifs will show up after a drive is mounted 
-     mount -t cifs //host/share /mnt/share
+mount -t cifs //host/share /mnt/share
+```
 
-find
+### find
+```shell
 -ctime +n (n*24)
 -size +n[G|M|k|b]
 -exec <command> '{}'  \;
@@ -104,51 +115,73 @@ find
 
 Find files on / (root) only:
 find / -xdev -type f -size +100M -exec ls -la {} \;
+```
 
-fstab
+### fstab
+```shell
 to mount a cifs share at boot:
 //<hostname>/bsm_offline /mnt/offline cifs rw,noexec,credentials=/etc/fstab_cifs_account 0 0
   credentials file:
      username=[<domain>/]<user>
      password=<passwd>
+```
 
-grep
+### grep
+```shell
 -o Print only the matched (non-empty) parts of a matching line, with each such part on a separate output line.
 
 -E egrep functionality. preferred over egrep
+```
 
-i2cdetect
+### i2cdetect
+```shell
 see ‘raspberry pi page'
+```
 
-i2cget
+### i2cget
+```shell
 see ‘raspberry pi page'
+```
 
-i2cset
+### i2cset
+```shell
 see ‘raspberry pi page'
+```
 
-IFS
-        IFS=$'\n’
+### IFS
+```shell
+IFS=$'\n’
+```
 
-inodes
+### inodes
+```shell
 Find the dir using the most inodes
 for i in /app/ada/NTCdb/oracle/*; do echo $i; find $i |wc -l | sort ; done
+```
 
-ipset
+### ipset
+```shell
 add add 10.0.0.0/20
 del ronin 10.0.0.0/20
 list <setname>
 list ronin
+```
 
-iptables
+### iptables
+```shell
 —list or service iptables status
 iptables-restore < <rules_file>
+```
 
-iwconfig  (configure a wireless network interface)
+### iwconfig  (configure a wireless network interface)
 
-iwlist
+### iwlist
+```shell
 sudo iwlist wlan0 scan
+```
 
-jar
+### jar
+```shell
 to list the table of contents of a jar file
 jar tf webapps/ROOT/WEB-INF/lib/catalina-root.jar
 
@@ -163,11 +196,10 @@ jar cvf classes.jar Foo.class Bar.class
     
 to create a WAR:    
 jar -cvf myServletWAR.war .
+```
 
-java
-setting JAVA_HOME
-
-jmxterm
+### jmxterm
+```shell
 /app/platform/java/current/bin/java -jar /var/tmp/jmxterm-1.0-alpha-4-uber.jar
 
 $>domains
@@ -212,8 +244,10 @@ $>get OpenFileDescriptorCount
 OpenFileDescriptorCount = 99;
 
 $ java -jar jmxterm-1.0-alpha-4-uber.jar -v silent -n < jmxcommands 
+```
 
-jq
+### jq
+```shell
 see jq page
 
 - curl https://api.g4.app.cloud.net/v2/apps/dcc568a8-c9ba-4d68-a00b-123cd09d9c38/env -H "Authorization: bearer ${token}" | jq '.[].VCAP_SERVICES’
@@ -222,131 +256,85 @@ see jq page
 If name has special chars such as “-“
 
 - | jq '.[].VCAP_SERVICES."p-rabbitmq”'
+```
 
+### lsblk
+```shell
+--nodeps
+--noheadings
+-o KNAME,TYPE,MODEL
+```
 
-lsblk
-  --nodeps
-  --noheadings
-  -o KNAME,TYPE,MODEL
+### lsof
 
-lsof
-
-lspci
+### lspci
+```shell
 show HW/bus/video/eNet/etc
 lspci -v
+```
 
-lsusb
+### lsusb
 
-mail
+### mail
+```shell
 echo -e "difference found in $conf" '\n' "see `hostname`:$LOG" '\n' | /bin/mail -s "RUM Filters" foo@bar.com
+```
 
-mount
+### mount
+```shell
 mount -t iso9660 -o loop <iso> <mount>
+```
 
-msiexec.exe
+### msiexec.exe
+```shell
 /package package.msi
 /quiet
 /l* output.log
+```
 
-nc (netcat)
+### nc (netcat)
+```shell
 nc -w20 -vv vax 1984 (conn to remotehost (vax) on port 1984, very verbose, drop conn after 20 secs)
+```
 
-nohup
+### nohup
+```shell
 nohup <command> > /dev/null 2>&1 & # runs in background, still doesn't create nohup.out
+```
 
-od
+### od
 
-profile.d
+### profile.d
+```shell
 for RHEL create /etc/profile.d/<name>.sh
 Use export <var>=<value>
+```
 
-ps
+### ps
+```shell
 -l BSD long format
 -L NLWP (number of threads) & LWP (thread ID) will be displayed
 -ww displays wide format
 --forest displays ASCII art process tree
+```
 
-sed
-  sed s///
-  app_name=`echo $app | sed -e "s/ /_/g”`
-  sed -e ‘/s/[[:blank:]]//g’
-  
-  # replace \n
-  sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g'
 
-  # delete from line 2 thru to till word ’status’
-  cat foo.txt | sed -e ‘2,status/d'
-
-selinux
-    sestatus -v -b
-    ls -Z <file||dir>
-    getfacl <file||dir>
-    setfacl <file|dir>
-
-service (System V init script) (see chkconfig)
-service —status-all
-
-seq
-sequence of numbers
-seq <start> <stop>
-
-socat (port forward)
-nohup socat tcp-l:9999,fork,reuseaddr tcp:appd-po-01p.sys.net:3128  &
-
-sshfs (relies on osxfuse)
-sshfs <host>:<path_to_mount> <local_mount_point>
-
-su/sudo
-sudo -u mradmin /bin/bash
-
-su to no-login user
-su -s /bin/ksh csvn
-
-sudoers (/etc/sudoers)
-visudoers -f /etc/sudoers
-sd ALL = (ALL) ALL
-
-svn
-svn add cf-cli-installer_6.33.1_x86-64.rpm
-svn commit -m 'push cf-cli'
-
-systemctl (see also chkconfig)
-disable chronyd.service
-enable chronyd.service
-status chronyd.service
-start chronyd.service
-
-tar
-ssh wilmapp-wc-30s.sys.net "(cd /opt/wily/backup_appd4db-wc-03p/appd/Controller; tar -zcf - .)" |  tar -xzf -
-ssh wilmapp-wc-30s.sys.net "(cd /opt/wily/backup_appd4db-wc-03p/appd/Controller/events_service/analytics-processor/bin; tar -zcf - .)" |  tar -xzf -
-ssh wilmapp-wc-30s.sys.net "(cd /opt/wily/backup_appd4db-wc-03p/appd/Controller/events_service/analytics-processor/bin; tar -zcf - .)" |  (cd events_service/analytics-processor/bin; tar -xzf -)
-
-tcpdump
-Bit Masking
-/usr/sbin/tcpdump -A -s 0 '(((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | grep 68.87.250.34
-
-host <ip>
-src <ip>
-dst <ip>
-
-testdisk (data recovery utility)
-
-toe (table of (terminfo) entries)
-toe -a
-
-$RANDOM (bash shell variable)
+### $RANDOM (bash shell variable)
+```shell
 see also: shuf
 echo $RANDOM
 echo $(( RANDOM%200+100 ))
+```
 
-route
+### route
+```shell
 Add default route:
 route add default gw <gateway addr or name>
+```
 
-rpm/yum
-—nosignature (do 
-not validate GPG sigatures on install
-)
+### rpm/yum
+```shell
+—nosignature (do not validate GPG sigatures on install)
 
 Show installed files
 -qi —filesbytype <package name>
@@ -355,53 +343,155 @@ Rebuild rpmdb/broken yum
 mv /var/lib/rpm/* /var/tmp/rpm/
 rpm —rebuilddb
 /usr/lib/rpm/rpmdb_verify /var/lib/rpm/Packages
+```
 
-rsync
+### rsync
+```shell
 using ssh
 rsync --relative --quiet --remove-source-files -e ssh -q /path/to/file.csv deferred@#{worker}:/
+```
 
-sed
+### sed
+```shell
+sed s///
+app_name=`echo $app | sed -e "s/ /_/g”`
+sed -e ‘/s/[[:blank:]]//g’
+  
+# replace \n
+sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g'
+
+# delete from line 2 thru to till word ’status’
+cat foo.txt | sed -e ‘2,status/d'
+
 -r Extended Regular Expression argument
-     echo 198.27.78.5l | sed -r 's/[0-9]{1,3}$/0\/20/'
+echo 198.27.78.5l | sed -r 's/[0-9]{1,3}$/0\/20/'
+```
 
-shuf
+### selinux
+```shell
+sestatus -v -b
+ls -Z <file||dir>
+getfacl <file||dir>
+setfacl <file|dir>
+```
+
+### service (System V init script) (see chkconfig)
+```shell
+service —status-all
+```
+
+### seq
+```shell
+sequence of numbers
+seq <start> <stop>
+```
+
+### shuf
+```shell
 random number generator
 see also: od, $RANDOM
 shuf -i 1-100 -n 1
+```
 
-vi
+### socat (port forward)
+```shell
+nohup socat tcp-l:9999,fork,reuseaddr tcp:appd-po-01p.sys.net:3128  &
+```
+
+### sshfs (relies on osxfuse)
+```shell
+sshfs <host>:<path_to_mount> <local_mount_point>
+```
+
+### su/sudo
+```shell
+sudo -u mradmin /bin/bash
+
+su to no-login user
+su -s /bin/ksh csvn
+
+sudoers (/etc/sudoers)
+visudoers -f /etc/sudoers
+sd ALL = (ALL) ALL
+```
+
+### svn
+```shell
+svn add cf-cli-installer_6.33.1_x86-64.rpm
+svn commit -m 'push cf-cli'
+```
+
+### systemctl (see also chkconfig)
+```shell
+disable chronyd.service
+enable chronyd.service
+status chronyd.service
+start chronyd.service
+```
+
+### tar
+```shell
+ssh wilmapp-wc-30s.sys.net "(cd /opt/wily/backup_appd4db-wc-03p/appd/Controller; tar -zcf - .)" |  tar -xzf -
+ssh wilmapp-wc-30s.sys.net "(cd /opt/wily/backup_appd4db-wc-03p/appd/Controller/events_service/analytics-processor/bin; tar -zcf - .)" |  tar -xzf -
+ssh wilmapp-wc-30s.sys.net "(cd /opt/wily/backup_appd4db-wc-03p/appd/Controller/events_service/analytics-processor/bin; tar -zcf - .)" |  (cd events_service/analytics-processor/bin; tar -xzf -)
+```
+
+### tcpdump
+```shell
+Bit Masking
+/usr/sbin/tcpdump -A -s 0 '(((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | grep 68.87.250.34
+
+host <ip>
+src <ip>
+dst <ip>
+```
+
+### testdisk (data recovery utility)
+
+### toe (table of (terminfo) entries)
+```shell
+toe -a
+```
+
+### vi
+```shell
 show the difference between tabs and spaces
 :set list
 :set ff=unix
 
 remove ^M
 :1,$ s/<CTRL-V><CTRL-M>//g
+```
 
-wget
+### wget
+```shell
 download file 
 wget foo.com/index.html -O newfile.html
+```
 
-X
+### X
+```shell
 <configure remote host>
-     sudo yum install -y xorg-x11-apps xauth libXext libXrender libXtst
-     sudo vi /etc/ssh/sshd_config
-          X11Forwarding yes
-          X11UseLocalhost no
+sudo yum install -y xorg-x11-apps xauth libXext libXrender libXtst
+sudo vi /etc/ssh/sshd_config
+  X11Forwarding yes
+  X11UseLocalhost no
 
-     sudo /etc/init.d/sshd reload
+sudo /etc/init.d/sshd reload
 
 <from localhost>
-     xhost + <host>
-     ssh -X or -Y <host>
+xhost + <host>
+ssh -X or -Y <host>
 
 <remote host su>
-     sudo su -
-     cp /opt/home/white/.Xauthority .
-     chmod 0600 ~/.Xauthority
-X11 as root:
-    ssh -XY <user>@remotehost
-  xeyes
-  sudo su -
-  xauth add $(xauth -f /home/<user>/.Xauthority list | tail -1)
-  xeyes
+sudo su -
+cp /opt/home/white/.Xauthority .
+chmod 0600 ~/.Xauthority
 
+# X11 as root:
+ssh -XY <user>@remotehost
+xeyes
+sudo su -
+xauth add $(xauth -f /home/<user>/.Xauthority list | tail -1)
+xeyes
+```
