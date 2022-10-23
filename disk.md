@@ -16,6 +16,9 @@ armv7.img: DOS/MBR boot sector;
   partition 2 : ID=0xa9, start-CHS (0xc,60,49), end-CHS (0x94,141,57), startsector 196608, 2189952 sectors
 ```
 
+### MBR
+
+
 ### Raspberry Pi
 
 An overview of the files on the /boot/firmware partition (the 1st partition
@@ -44,3 +47,26 @@ follows:
                    wifi access points and other networking settings
 * user-data      - user-data for cloud-init; edit this to configure initial
                    users, SSH keys, packages, etc.
+
+
+### NetBSD
+fdisk partition type:
+boot partition: FAT32 (c)
+
+NetBSD: a9
+
+fdisk partition table for USB/Raspberry Pi:
+
+```shell
+Disk /dev/sdc: 14.86 GiB, 15931539456 bytes, 31116288 sectors
+Disk model: STORAGE DEVICE
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x00000000
+
+Device     Boot  Start     End Sectors Size Id Type
+/dev/sdc1  *     32768  196607  163840  80M  c W95 FAT32 (LBA)
+/dev/sdc2       196608 2386559 2189952   1G a9 NetBSD
+```
