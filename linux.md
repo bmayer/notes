@@ -74,6 +74,11 @@ cut -f2 -d” "
 dd if=/dev/zero of=/db/oracle/data/output conv=fdatasync bs=384k count=5k; rm -f /db/oracle/data/output
 ```
 
+### dmesg
+```shell
+
+```
+
 ### docker
 ```shell
 run [runs the container]
