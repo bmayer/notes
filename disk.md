@@ -55,7 +55,7 @@ boot partition: FAT32 (c)
 
 NetBSD: a9
 
-fdisk partition table for USB/Raspberry Pi:
+fdisk partition table for uSD/Raspberry Pi:
 
 ```shell
 Disk /dev/sdc: 14.86 GiB, 15931539456 bytes, 31116288 sectors
