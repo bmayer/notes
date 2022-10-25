@@ -8,6 +8,10 @@ apt-get update && apt-get install -y git vim
 apt-get install -t wheezy-backports nginx
 
 /etc/apt/sources.list.d/
+
+# rm repo from sources.list.d
+add-apt-repository --remove gluster-ubuntu-glusterfs-9-focal.list
+add-apt-repository --remove "https://repo.saltproject.io/py3/debian/10/armhf/latest buster InRelease"
 ```
 
 ### arp
