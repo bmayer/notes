@@ -70,3 +70,21 @@ Device     Boot  Start     End Sectors Size Id Type
 /dev/sdc1  *     32768  196607  163840  80M  c W95 FAT32 (LBA)
 /dev/sdc2       196608 2386559 2189952   1G a9 NetBSD
 ```
+
+
+http://www.netbsd.org/docs/guide/en/chap-inst.html#fig-part
+```shell
+ubuntu@p0:~$ sudo fdisk -l /dev/sdc2
+Disk /dev/sdc2: 14.76 GiB, 15830876160 bytes, 30919680 sectors
+Geometry: 64 heads, 32 sectors/track, 1156 cylinders
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: bsd
+
+Slice  Start      End  Sectors  Size Type     Fsize Bsize Cpg
+a     196608 31116287 30919680 14.8G 4.2BSD       0     0   0
+c          0 31116287 31116288 14.9G unused       0     0   0
+d          0 31116287 31116288 14.9G unused       0     0   0
+e      32768   196607   163840   80M MS-DOS       0     0   0
+```
