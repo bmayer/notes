@@ -1,4 +1,10 @@
+### Kernel Supported Filesystems
+```shell
+# nodev indicates that the filesystem in question is not a physical filesystem that needs a block device to live on, but rather a virtual filesystem that is backed by something other than a block device.
+cat /proc/filesystems
 
+ll /lib/modules/$(uname -r)/kernel/fs
+```
 
 
 ### CHS
@@ -91,8 +97,6 @@ e      32768   196607   163840   80M MS-DOS       0     0   0
 
 
 ### Mount an img
-
-
 
 ```shell
 $ sudo fdisk -lu ./armv7.img
