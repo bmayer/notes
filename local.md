@@ -33,7 +33,7 @@ mask: 255.255.0.0
 gw: 10.0.0.1
 ```
 
-## r00_l0_hamden_yogi
+## rt00_l0_hamden_yogi
 ```shell
 mac: xx:xx:xx:EE:14:C5
 ip: 10.0.0.61
