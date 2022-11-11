@@ -25,7 +25,7 @@ DHCP: 10.0.0.2 - 10.0.0.253
 Lease: 48h
 ```
 
-## sw00_l2_hamden_yogi
+## sw00_l2_hamdpen_yogi
 ```shell
 mac: xx:xx:xx:31:67:91
 ip: 10.0.0.121
@@ -33,9 +33,15 @@ mask: 255.255.0.0
 gw: 10.0.0.1
 ```
 
-## rt00_l0_hamden_yogi
+## rt00_l0_hampden_yogi
 ```shell
 mac: xx:xx:xx:EE:14:C5
 ip: 10.0.0.61
 
+```
+
+rpt00_l0_hampden_yogi
+```shell
+mac: 50-0F-F5-70-75-30
+ip: 192.168.0.147
 ```
