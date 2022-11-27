@@ -76,6 +76,10 @@ cut -f2 -d” "
 ### dd
 ```shell
 dd if=/dev/zero of=/db/oracle/data/output conv=fdatasync bs=384k count=5k; rm -f /db/oracle/data/output
+
+sudo umount /dev/sdX
+
+sudo dd if=./local/ubuntu-22.04.1-desktop-amd64.iso of=/dev/sdX bs=4M && sync
 ```
 
 ### dmesg
