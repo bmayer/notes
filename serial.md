@@ -7,3 +7,11 @@ intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <un
 opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
 isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
 ```
+
+```shell=
+> dmesg | grep tty
+[    0.182449] printk: console [tty0] enabled
+[    0.473588] 00:04: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    0.498048] 0000:08:00.1: ttyS4 at I/O 0xe800 (irq = 31, base_baud = 115200) is a 16550A
+[    0.519418] 0000:08:00.2: ttyS5 at I/O 0xe400 (irq = 33, base_baud = 115200) is a 16550A
+```
