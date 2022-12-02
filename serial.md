@@ -15,3 +15,7 @@ isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echo
 [    0.498048] 0000:08:00.1: ttyS4 at I/O 0xe800 (irq = 31, base_baud = 115200) is a 16550A
 [    0.519418] 0000:08:00.2: ttyS5 at I/O 0xe400 (irq = 33, base_baud = 115200) is a 16550A
 ```
+
+### RS-232
+
+RS-232 is the standard interface approved by the EIA for connecting serial devices. The standard describes the physical interface and protocol for low-speed communication. The RS-232 protocol is used mostly over DB9 or DB25 ports.
