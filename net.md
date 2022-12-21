@@ -5,4 +5,7 @@
 # check arp ttl
 > cat /proc/sys/net/ipv4/neigh/default/gc_stale_time
 60
+
+# arp cache
+> ip -s neigh show
 ```
